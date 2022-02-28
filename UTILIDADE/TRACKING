@@ -1,0 +1,12 @@
+#ATIVA O HUNTING MODE E TRACKEA PLAYERS PROXIMO
+if skill 'tracking' >= 80
+skill 'tracking'
+waitforgump 4267467659
+if ingump 'Begin Hunting' 4267467659
+waitforgump 4267467659
+gumpresponse 6 4267467659
+overhead '== TRACK ATIVO =='
+endif
+waitforgump 4267467659
+gumpresponse 5 4267467659
+endif
