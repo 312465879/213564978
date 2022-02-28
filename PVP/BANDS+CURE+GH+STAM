@@ -8,14 +8,14 @@
 if skill 'healing' >= 60
 if not timerexists "bands"
 createtimer "bands"
-settimer "bands" 9500
+settimer "bands" 14500
 endif
 if findtype "clean bandage%s%" backpack
 if poisoned
 if targetexists 'beneficial'
 hotkey 'target self'
 endif
-if timer "bands" >= 9500
+if timer "bands" >= 14500
 dclicktype "clean bandage%s%" backpack
 waitfortarget
 hotkey "Target Self"
@@ -30,7 +30,7 @@ if hp < maxhp
 if targetexists 'beneficial'
 hotkey 'target self'
 endif
-if timer "bands" >= 9500
+if timer "bands" >= 14500
 dclicktype "clean bandage%s%" backpack
 waitfortarget
 hotkey "Target Self"
