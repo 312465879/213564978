@@ -1,0 +1,24 @@
+# pouch graphic = 0x0e79
+# LOOP PARA USAR A POUCH ASSIM QUE FICAR PARALIZADO
+
+createtimer 'loop_on_warning_msg'
+settimer 'loop_on_warning_msg' 0
+
+sysmsg 'Starting Auto-Pouch Loop...'
+while not dead 'self'
+    if timer 'loop_on_warning_msg' >= 5000
+        settimer 'loop_on_warning_msg' 0
+        sysmsg 'Auto-Pouch Loop On...'
+    endif
+    if paralyzed
+        if findtype pouch backpack 38 as trap_pouch
+            sysmsg '>>> USANDO AS TRAP POUCH!'
+            useobject trap_pouch
+            wait 500
+        else
+            overhead 'ACABOU AS POUCHS!' 37
+            stop
+        endif
+    endif
+endwhile
+loop
