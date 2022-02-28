@@ -1,0 +1,97 @@
+##########################
+# ACTIVATE COMMAND ASPECT ON ARMOR
+# by gugutz
+# version 0.0.1
+#################################
+
+
+#################################
+# CREATE ALL LISTS FOR CONFIG
+#################################
+
+if not listexists 'activate_COMMAND_config_lists'
+    createlist 'activate_COMMAND_config_lists'
+else
+    clearlist 'activate_COMMAND_config_lists'
+endif
+
+# routine-related lists
+pushlist 'activate_COMMAND_config_lists' 'action_delay'
+pushlist 'activate_COMMAND_config_lists' 'aspect_color'
+
+
+foreach list in 'activate_COMMAND_config_lists'
+    if not listexists list
+        createlist list
+    else
+        clearlist list
+    endif
+endfor
+
+
+################################
+# SCRIPT CONFIGURATION
+################################
+
+pushlist 'action_delay' 600
+
+# COMMAND color
+pushlist 'aspect_color' 1782
+
+
+# INITIALIZE THE CONFIGURATION VALUES AS VARIABLES BUT FROM LIST SO WE DONT NEED TO ITERATE TO GET THE INDEX 0
+if atlist 'action_delay' 0 as action_delay
+if atlist 'aspect_color' 0 as aspect_color
+
+################################
+# CODE
+################################
+
+# IF ASPECT IS ALREADY ACTIVE ON ARMOR, STOP SCRIPT
+if findlayer 'self' innertorso as tunic
+    if hue tunic == aspect_color
+    overhead "COMMAND already active on armor!" 48
+        stop
+    endif
+endif
+
+
+# OPEN ASPECT GUMP
+while not gumpexists 2424293173
+    sysmsg 'Opening Aspect Gump'
+    say '[aspects'
+    waitforgump aspect_gump action_delay
+endwhile
+
+# CHANGE ARMOR ASPECT TO CORRECT ASPECT
+if not ingump 'Follower Damage Bonus' 2424293173
+    overhead "Changing aspect to COMMAND"
+    while not ingump 'Follower Damage Bonus' 2424293173
+        gumpresponse 15 2424293173
+    endwhile
+endif
+
+
+# ACTIVATE ASPECT ON ARMOR
+waitforgump 2424293173 action_delay
+gumpresponse 17 2424293173
+waitforgump 2424293173 action_delay
+gumpresponse 17 2424293173
+waitforgump 2424293173 action_delay
+
+
+# CHECK IF ASPECT IN FACT ACTIVATED
+if findlayer 'self' innertorso as tunic
+    if hue tunic == aspect_color
+    overhead "activated COMMAND on armor!" 48
+        sysmsg "Activated COMMAND On Armor!" 48
+        stop
+    endif
+endif
+
+
+################################
+# CLOSE CONFIG 'if atlist' STATEMENTS
+################################
+endif
+endif
