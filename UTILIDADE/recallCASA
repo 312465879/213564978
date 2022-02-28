@@ -97,7 +97,7 @@ foreach runetome_rune_btn in 'runetome_rune_btn_number'
             elseif inlist 'use_charges' 'yes'
                 dclick rtome
                 waitforgump 167090027 600
-                gumpresponse 100
+                gumpresponse 100 167090027
             endif
         elseif findtype 'runebook' backpack as rbook
             if not inlist 'use_charges' 'yes'
@@ -106,8 +106,8 @@ foreach runetome_rune_btn in 'runetome_rune_btn_number'
                 target rbook
             elseif inlist 'use_charges' 'yes'
                 dclick rbook
-                waitforgump 167090027 600
-                gumpresponse 20
+                waitforgump 1551740969 600
+                gumpresponse 2 1551740969
             endif
         endif
     endfor
