@@ -1,0 +1,29 @@
+# STR POTS
+if str < 120
+    if not findtype 'white potion' 'backpack'
+    overhead '*SEM POT DE FORÇA*' 39
+    else
+        potion 'strength'
+    endif
+endif
+
+#RESIST CONTRA MOB
+if not findbuff 'magic resist potion'
+    if not findtype 'black potion' 'backpack'
+    overhead '*SEM POT DE RESIST*' 39
+    else
+hotkey 'Drink Night Sight'
+endif
+endif
+
+# POT DE AGILIDADE
+if skill 'tactics' => 80
+    if dex <= 25
+        if not findtype 'blue potion' 'backpack'
+    overhead '*SEM POT DE AGILIDADE*' 39
+    else
+        potion 'agility'
+        wait 550
+        stop
+    endif
+endif
