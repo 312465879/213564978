@@ -1,0 +1,24 @@
+#EM FASE DE TESTE AINDA A IDEIA É DEIXAR ATIVO EM UMA HORA QUE VC SABE QUE VAI TOMAR UM BIG DUMP
+#CHANCE MAIOR DE SOBREVIVER SE JA ESTIVER SEGURANDO O TARGET DO GH 
+if hits < 70
+if targetexists 'beneficial'
+hotkey 'target self'
+endif
+if str <= 100
+potion 'strength'
+endif
+if poisoned
+potion 'cure'
+endif
+wait 300
+if hits < 70 and not poisoned
+if targetexists 'beneficial'
+hotkey 'target self'
+endif
+potion 'heal'
+overhead '=== PARANDO O AUTO POT ==='
+sysmsg '=== PARANDO O AUTO POT ==='
+hotkey '> Stop Current Script'
+endif
+endif
+loop
