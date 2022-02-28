@@ -1,0 +1,8 @@
+skill 'detectinghidden'
+wft
+target 'self'
+wait 200
+if insysmsg 'you reveal what was hidden.'
+    overhead '>>>>> ACHOU ALGUEM <<<<<'
+    sysmsg ">>>>> ACHOU ALGUEM <<<<<"
+endif
