@@ -1,0 +1,48 @@
+#LEMBRE-SE DE COLOCAR UM ATALHO SEPARADO PARA AS POTS DE REFRESH/EXPLOSION
+#ESSE MACRO SEMPRE QUE VC ESTIVER COM UM BENEFICIAL TARGET(GH POR EXEMPLO) ELE VAI SOLTAR SELF ANTES DE TOMAR A POT NECESSARIA
+if poisoned
+if hp < maxhp
+if targetexists 'beneficial'
+hotkey 'target self'
+endif
+endif
+if not findtype 'orange potion'
+        overhead 'NO CURE POTS'
+    else
+        potion 'cure'
+        overhead 'cure pot' 40 'self'
+        wait 550
+        stop
+    endif
+endif
+
+# restore HP
+if hp < maxhp
+if targetexists 'beneficial'
+hotkey 'target self'
+endif
+endif
+if hp < maxhp
+    if not findtype 'yellow potion'
+        overhead 'NO HEAL POTS'
+    else
+        overhead '** heal pot **'
+        potion 'heal'
+        wait 50
+        stop
+    endif
+endif
+
+# restore stamina (pot or food)
+if stam < maxstam
+    if findtype 'red potion' backpack
+        overhead 'refresh pots'
+        potion 'refresh'
+        wait 50
+        stop
+        overhead 'NO REFRESH POTS'
+    endif
+
+endif
+
+overhead '*nothing to do...*' 65
