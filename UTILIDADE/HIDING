@@ -1,0 +1,14 @@
+#FICA TENTANDO HIDAR ATÉ CONSEGUIR
+if hidden
+hotkey '> Stop Current Script'
+endif
+
+if not hidden
+skill 'hiding'
+wait 600
+if hidden
+hotkey '> Stop Current Script'
+endif
+wait 9400
+endif
+loop
