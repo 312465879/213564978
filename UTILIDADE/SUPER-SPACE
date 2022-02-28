@@ -1,0 +1,20 @@
+#INTERRUPT/POUCH/RODA GATE TUDO EM 1TECLA
+
+interrupt
+# handle paralyze
+if findbuff 'paralyze'
+    if not findtype 'pouch' 'backpack' 38
+        overhead '** NO POUCH **' 39
+        stop
+    endif
+    overhead 'pouch' 54
+    usetype 'pouch' 'backpack' 38 
+    stop
+endif
+
+# if there is a moongate nearby, enter it
+if findtype 'blue moongate' 'ground' any any 2
+hotkey 'Play Script: UTILIDADE\GATE'
+    wait 10
+    stop
+endif
