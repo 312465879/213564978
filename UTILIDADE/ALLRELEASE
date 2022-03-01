@@ -1,0 +1,3 @@
+say 'all release'
+waitforgump 931181454
+gumpresponse 1 931181454
