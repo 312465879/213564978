@@ -1,0 +1,51 @@
+#CARREGUE APENAS 1MAPA DE MINING NA BAG OU PODERA PERDER NO FIM DO MACRO
+@setvar object_delay 500
+if not varexist pack_animal or not find pack_animal ground 0 any 5
+    @unsetvar pack_animal
+
+    # FIND AND SAVE PLAYER LLAMA
+    if findtype 292 ground 0 any 5 as llama
+        overhead 'scanning' 55 llama
+        if noto llama == noto 'self'
+            @setvar pack_animal llama
+            overhead 'found player llama' 55 pack_animal
+        endif
+    elseif findtype 291 ground 0 any 5 as horse
+        overhead 'scanning' 55 horse
+        if noto horse == noto 'self'
+            @setvar pack_animal horse
+        endif
+    endif
+
+    if varexist pack_animal
+            sysmsg "FOUND PLAYER PACK LLAMA" 55
+            overhead "found and saving llama!" 55 'self'
+            overhead 'found player llama' 55 pack_animal
+    endif
+endif
+
+#MINERIO
+if weight >= maxweight
+while findtype 6585 backpack any any as ore
+sysmsg '> Unloading MINERIO...'
+lift ore 60000
+wait object_delay
+drop pack_animal -1 -1 0
+wait object_delay
+endwhile
+endif
+
+if rhandempty ?? 0
+dclicktype 'pickaxe' backpack
+endif
+hotkey 'Use item in hand'
+wait 1100
+if insysmsg 'do not see any'
+hotkey 'Play Script: UTILIDADE\ANTIPK'
+endif
+if insysmsg 'you have completely exhausted your mining camp'
+lifttype '5356' 1 backpack 2796
+droprelloc 0 0
+hotkey 'Play Script: UTILIDADE\recallR1'
+endif
+loop
