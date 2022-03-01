@@ -1,0 +1,8 @@
+#REL POR+CORDA AUTOMATICO
+#"SÓ" FUNCIONA ONDE NÃO TEM RELEVO
+cast 'Teleport'
+dclicktype '5370'
+wft
+targetrelloc 0 10
+wft
+targetrelloc 0 10
