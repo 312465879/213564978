@@ -1,0 +1,63 @@
+@setvar object_delay 500
+if not varexist pack_animal or not find pack_animal ground 0 any 5
+    @unsetvar pack_animal
+
+    # FIND AND SAVE PLAYER LLAMA
+    if findtype 292 ground 0 any 5 as llama
+        overhead 'scanning' 55 llama
+        if noto llama == noto 'self'
+            @setvar pack_animal llama
+            overhead 'found player llama' 55 pack_animal
+        endif
+    elseif findtype 291 ground 0 any 5 as horse
+        overhead 'scanning' 55 horse
+        if noto horse == noto 'self'
+            @setvar pack_animal horse
+        endif
+    endif
+
+    if varexist pack_animal
+            sysmsg "FOUND PLAYER PACK LLAMA" 55
+            overhead "found and saving llama!" 55 'self'
+            overhead 'found player llama' 55 pack_animal
+    endif
+endif
+
+#LUMBER
+if weight >= maxweight 
+while findtype 7127 backpack any any as ore
+sysmsg '> Unloading MADEIRA...'
+lift ore 60000
+wait object_delay
+drop pack_animal -1 -1 0
+wait object_delay
+endwhile
+endif
+
+#LUMBER
+if weight >= maxweight 
+while findtype 7133 backpack any any as ore
+sysmsg '> Unloading MADEIRA...'
+lift ore 60000
+wait object_delay
+drop pack_animal -1 -1 0
+wait object_delay
+endwhile
+endif
+
+if lhandempty ?? 0
+dclicktype 'hatchet' backpack
+endif
+hotkey 'Use Item in Left Hand'
+wait 500 
+hotkey 'target self'
+wait 4500
+if insysmsg 'do not see any'
+hotkey 'Play Script: UTILIDADE\ANTIPK'
+endif
+if insysmsg 'you have completely exhausted your lumber camp'
+lifttype '5356' 1 backpack 2799
+droprelloc 0 0
+hotkey 'Play Script: UTILIDADE\recallR1'
+endif
+loop
