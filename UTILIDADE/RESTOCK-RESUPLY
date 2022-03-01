@@ -52,6 +52,8 @@ pushlist 'config_lists' 'unload_misc_items'
 pushlist 'config_lists' 'unload_misc_items_container_location'
 pushlist 'config_lists' 'gold_deposit_container_location'
 pushlist 'config_lists' 'tomes_location'
+pushlist 'config_lists' 'char_instrument'
+
 
 foreach list in 'config_lists'
     if not listexists list
@@ -231,7 +233,7 @@ endif
 #
 
 if skill 'musicianship' > 50 or skill 'peacemaking' >= 50 or skill 'discordance' >= 50 or skill 'provocation' >= 50
-    if not listexists 'char_instrument'
+    if not listexists 'instruments'
         createlist 'instruments'
         pushlist 'instruments' 'lute'
         pushlist 'instruments' 'drums'
@@ -245,11 +247,6 @@ if skill 'musicianship' > 50 or skill 'peacemaking' >= 50 or skill 'discordance'
 
             if exceedingly in instrument_label or supremely in instrument_label
                 sysmsg 'Found And Saved Char Magical Instrument' 90
-                if not listexists 'char_instrument'
-                    createlist 'char_instrument'
-                else
-                    createlist 'char_instrument'
-                endif
                 pushlist 'char_instrument' instrument
                 break
             endif
@@ -330,11 +327,11 @@ foreach currency_type in 'currency_types'
         elseif varexist gold_deposit_container and find gold_deposit_container gold_container_location any any 2
             if inlist 'verbose_mode' 'yes'
                 if inlist 'beta_client' 'yes'
-                    overhead 'Depositing {{currency_type}} in vault' 49
-                    sysmsg 'Deposited {{currency_type}} in vault!' 49
+            overhead 'Depositing {{currency_type}} in vault' 49
+        #sysmsg 'Deposited {{currency_type}} in vault!' 49
                 else
-                    sysmsg ">>> DEPOSITING..." 150 'self'
-                    overhead "*depositing...*" 56 'self'
+                    #sysmsg ">>> DEPOSITING..." 150 'self'
+                #overhead "*depositing...*" 56 'self'
                 endif
             endif
 
@@ -347,12 +344,12 @@ foreach currency_type in 'currency_types'
             if inlist 'verbose_mode' 'yes'
                 if insysmsg 'You deposit'
                     if inlist 'beta_client' 'yes'
-                        overhead 'deposited {{currency_type}} in vault' 49
-                        sysmsg 'Deposited {{currency_type}} in vault!' 49
-                        overhead 'deposited in vault:' 49
-                        overhead currency_type 49
-                        sysmsg '> Deposited In Vault:' 49
-                        sysmsg currency_type 49
+            #overhead 'deposited {{currency_type}} in vault' 49
+            #sysmsg 'Deposited {{currency_type}} in vault!' 49
+            #overhead 'deposited in vault:' 49
+            #overhead currency_type 49
+            #sysmsg '> Deposited In Vault:' 49
+            #sysmsg currency_type 49
                     endif
                 endif
             endif
