@@ -270,8 +270,20 @@ if inlist 'unload_misc_items' 'yes'
     pushlist 'misc_items' 29348
     # spell hue deeds
     pushlist 'misc_items' 5359
-    # pushlist 'misc_items' 'seed of renewal'
-    # pushlist 'misc_items' 'bag of seeds'
+    pushlist 'misc_items' 'seed of renewal'
+    pushlist 'misc_items' 'bag of seeds'
+    pushlist 'misc_items' 'parchment'
+    pushlist 'misc_items' 'carpet'
+    pushlist 'misc_items' 'chain link'
+    pushlist 'misc_items' 'card'
+    pushlist 'misc_items' 'dungeon seed'
+    pushlist 'misc_items' 3712
+    pushlist 'misc_items' 3648
+    pushlist 'misc_items' 29833
+    pushlist 'misc_items' 42517
+    pushlist 'misc_items' 29040
+    pushlist 'misc_items' 52615
+    pushlist 'misc_items' 17083
 
     if inlist 'unload_misc_items_container_location' 'ground' or inlist 'unload_misc_items_container_location' 'subcontainer'
         if not varexist misc_items_container or not find misc_items_container misc_items_container_location any any 2
@@ -803,7 +815,7 @@ if findtype 'storage shelf' ground any any 2 as storageshelf
     endif
     waitforgump 3232825965 600
     if gumpexists 3232825965
-        gumpclose
+        gumpclose 3232825965
     endif
 
     # restock shelf from packies
@@ -826,7 +838,7 @@ if findtype 'storage shelf' ground any any 2 as storageshelf
     endif
 
     if gumpexists 3232825965
-        gumpclose
+        gumpclose 3232825965
     endif
 else
     if varexist storage_shelf
@@ -869,7 +881,7 @@ if findtype 'resource container' ground any any 2 as stockpile
         endfor
     endif
     if gumpexists 1859005118
-        gumpclose
+        gumpclose 1859005118
     endif
 endif
 #
@@ -884,7 +896,7 @@ if findtype 'garden shelf' ground any any 2 as gardenshelf
 
         target 'self'
     endif
-    gumpclose
+    gumpclose 426984115
 endif
 
 #
@@ -898,12 +910,12 @@ if findtype 'ornate elven chest' ground any any 2 as recycler
 
     useobject recycler
     waitforgump 4045111101
-    gumpresponse 3
+    gumpresponse 3 4045111101
     waitfortarget
     target 'self'
     waitforgump 4045111101
     if gumpexists 4045111101
-        gumpclose
+        gumpclose 4045111101
     endif
 endif
 #
@@ -916,7 +928,7 @@ menu storage_shelf 1
 waitforgump 3232825965 600
 
 if gumpexists 3232825965
-    gumpclose
+    gumpclose 3232825965
 endif
 
 
