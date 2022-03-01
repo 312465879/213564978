@@ -27,3 +27,4 @@ if skill 'tactics' => 80
         stop
     endif
 endif
+endif
