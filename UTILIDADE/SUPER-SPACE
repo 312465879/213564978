@@ -14,7 +14,7 @@ endif
 
 # if there is a moongate nearby, enter it
 if findtype 'blue moongate' 'ground' any any 2
-hotkey 'Play Script: UTILIDADE\GATE'
+hotkey 'Play Script: UTILIDADE\rodarGATE'
     wait 10
     stop
 endif
