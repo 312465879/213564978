@@ -1,4 +1,5 @@
 #CARREGUE APENAS 1MAPA DE MINING NA BAG OU PODERA PERDER NO FIM DO MACRO
+#QUANDO ELE TENTAR JOGAR O COMPLETO NO CHAO
 @setvar object_delay 500
 if not varexist pack_animal or not find pack_animal ground 0 any 5
     @unsetvar pack_animal
