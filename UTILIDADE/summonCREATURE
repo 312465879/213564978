@@ -1,0 +1,16 @@
+#TENTA SUMMONAR UM ROTTING FLESH(ZUMBI TANK DE 1SLOT)
+while not findtype 'a rotting flesh' ground 'any' 'any' 3
+    say [necromancy1
+    cast 'Summ. Creature'
+    wait 2000
+    if findtype 'a skeleton' ground 'any' 'any' 3 as dispelpet
+        menu dispelpet 10
+    endif
+    if findtype 'a zombie' ground 'any' 'any' 3 as dispelpet
+        overhead 'zumbi'
+        menu dispelpet 10
+    endif
+    if findtype 'a ghoul' ground 0 'any' 3 as dispelpet
+        menu dispelpet 10
+    endif
+endwhile
