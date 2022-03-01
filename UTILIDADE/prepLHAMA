@@ -1,0 +1,250 @@
+#PREPARAR A UMA BAG DENTRO DA LHAMA
+#USAR O SET LOOT BAG PRA JA LOTEAR OS ITENS ABAIXO DIRETO NA BAG PREPARADA
+#COLOCAR UMA HOTKEY NO GRAB ITEM DO RAZOR PARA LOTEAR OS ITENS DE VALOR PRA SUA BAG
+@setvar object_delay 500
+@setvar detect_delay 10000
+@removelist 'packies'
+createlist 'packies'
+
+while findtype 292 ground any any 2 as packie
+    if noto packie = noto 'self'
+        pushlist 'packies' packie
+        overhead '*opening bag*' 56 packie
+        dclick packie
+        wait object_delay
+    endif
+    @ignore packie
+endwhile
+
+while findtype 291 ground any any 2 as packie
+    if noto packie = noto 'self'
+        pushlist 'packies' packie
+        overhead '*opening bag*' 56 packie
+        dclick packie
+        wait object_delay
+    endif
+    @ignore packie
+endwhile
+clearignore
+
+setvar 'bag_lhama'
+dclick 'bag_lhama'
+wait object_delay
+
+# Plant Chemicals
+    if findtype 29030 backpack any any as pc_ls
+        sysmsg '> Unloading Plant Chemicals...'
+    lift pc_ls 1
+            wait object_delay
+            drop 'bag_lhama' 54 65 0
+wait object_delay
+endif
+
+# Arcane Scroll
+    if findtype 3827 backpack any any as as_ls
+        sysmsg '> Unloading Arcane Scroll...'
+    lift as_ls 1
+            wait object_delay
+            drop 'bag_lhama' 44 65 0
+wait object_delay
+endif
+
+# Blood Moss
+    if findtype 'Blood Moss' backpack any any as bm_ls
+        sysmsg '> Unloading Blood Moss...'
+    lift bm_ls 1
+            wait object_delay
+drop 'bag_lhama' 46 73 0
+wait object_delay
+endif
+
+# Black Pearls
+    if findtype 'Black Pearl%s%' backpack any any as bp_ls
+        sysmsg '> Unloading Black Pearls...'
+    lift bp_ls 1
+            wait object_delay
+drop 'bag_lhama' 44 65 0
+wait object_delay
+endif
+
+# Garlic
+    if findtype 'Garlic' backpack any any as gl_ls
+        sysmsg '> Unloading Garlic...'
+    lift gl_ls 1
+            wait object_delay
+drop 'bag_lhama' 44 65 0
+wait object_delay
+endif
+
+
+# Mandrake Roots
+    if findtype 'Mandrake Root%s%' backpack any any as mr_ls
+        sysmsg '> Unloading Mandrake Roots...'
+    lift mr_ls 1
+            wait object_delay
+drop 'bag_lhama' 44 73 0
+wait object_delay
+endif
+
+# Ginseng
+    if findtype 'Ginseng' backpack any any as gs_ls
+        sysmsg '> Unloading Ginseng...'
+    lift gs_ls 1
+            wait object_delay
+drop 'bag_lhama' 44 65 0
+wait object_delay
+endif
+
+# Nightshade
+    if findtype 'Nightshade' backpack any any as ns_ls
+        sysmsg '> Unloading Nightshade...'
+    lift ns_ls 1
+            wait object_delay
+drop 'bag_lhama' 44 65 0
+wait object_delay
+endif
+
+# Sulfurous Ash
+    if findtype 'Sulfurous Ash' backpack any any as sa_ls
+        sysmsg '> Unloading Sulfurous Ash...'
+    lift sa_ls 1
+            wait object_delay
+drop 'bag_lhama' 44 66 0
+wait object_delay
+endif
+
+# SPIDER SILK
+    if findtype "Spider's Silk" backpack any any as ss_ls
+        sysmsg '> Unloading SPIDER SILK...'
+    lift ss_ls 1
+            wait object_delay
+drop 'bag_lhama' 53 65 0
+wait object_delay
+endif
+
+# RUBIES
+    if findtype 'rub%ies/y%' backpack any any as rb_ls
+        sysmsg '> Unloading RUBIES...'
+    lift rb_ls 1
+            wait object_delay
+drop 'bag_lhama' 52 72 0
+wait object_delay
+endif
+
+# TOURMALINES
+    if findtype 'tourmaline%s%' backpack any any as tm_ls
+        sysmsg '> Unloading TOURMALINES...'
+    lift tm_ls 1
+            wait object_delay
+drop 'bag_lhama' 52 72 0
+wait object_delay
+endif
+
+# EMERALD
+    if findtype 'emerald%s%' backpack any any as rb_ls
+        sysmsg '> Unloading EMERALD...'
+    lift rb_ls 1
+            wait object_delay
+drop 'bag_lhama' 52 72 0
+wait object_delay
+endif
+
+
+
+# DIAMANTES
+    if findtype 'diamond%s%' backpack any any as rb_ls
+        sysmsg '> Unloading DIAMANTES...'
+    lift rb_ls 1
+            wait object_delay
+drop 'bag_lhama' 52 72 0
+wait object_delay
+endif
+
+
+
+# AMBER
+    if findtype 'piece%s% of amber' backpack any any as rb_ls
+        sysmsg '> Unloading AMBER...'
+    lift rb_ls 1
+            wait object_delay
+drop 'bag_lhama' 52 72 0
+wait object_delay
+endif
+
+
+
+# AMETHYSTS
+    if findtype 'amethyst%s%' backpack any any as rb_ls
+        sysmsg '> Unloading AMETHYSTS...'
+    lift rb_ls 1
+            wait object_delay
+drop 'bag_lhama' 52 72 0
+wait object_delay
+endif
+
+
+
+# STAR SAPPHIRES
+    if findtype 'star sapphire%s%' backpack any any as rb_ls
+        sysmsg '> Unloading STAR SAPPHIRES...'
+    lift rb_ls 1
+            wait object_delay
+drop 'bag_lhama' 52 72 0
+wait object_delay
+endif
+
+
+
+# CITRINE
+    if findtype 'citrine%s%' backpack any any as rb_ls
+        sysmsg '> Unloading CITRINE...'
+    lift rb_ls 1
+            wait object_delay
+drop 'bag_lhama' 52 72 0
+wait object_delay
+endif
+
+
+# SAPPHIRES
+    if findtype 'sapphire%s%' backpack any any as rb_ls
+        sysmsg '> Unloading SAPPHIRES...'
+    lift rb_ls 1
+            wait object_delay
+drop 'bag_lhama' 52 72 0
+wait object_delay
+endif
+
+# RAW RIBS
+    if findtype 'cut%s% of raw ribs' backpack any any as rb_ls
+        sysmsg '> Unloading RAW RIBS...'
+    lift rb_ls 1
+            wait object_delay
+drop 'bag_lhama' 44 74 0
+wait object_delay
+endif
+
+# LEATHER
+    if findtype 'cut up leather' backpack any any as rb_ls
+        sysmsg '> Unloading LEATHER...'
+    lift rb_ls 1
+            wait object_delay
+drop 'bag_lhama' 44 65 0
+wait object_delay
+endif
+
+# GOLD COIN
+    if findtype 'gold coin' backpack any any as gc_ls
+        sysmsg '> Unloading LEATHER...'
+    lift gc_ls 1
+            wait object_delay
+drop 'bag_lhama' 44 74 0
+wait object_delay
+endif
+
+overhead 'TERMINOU DE PREPARAR A LHAMA'
+sysmsg '>>>>> TERMINOU DE PREPARAR A LHAMA <<<<<'
+
+@unsetvar 'bag_lhama'
+@removelist 'packies'
+@clearignore
+@clearsysmsg
