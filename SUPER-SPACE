@@ -134,17 +134,13 @@ endif
 # maintain food satisfaction buff
 if not findbuff 'Food Satisfaction' and findtype 'tray' backpack
     dclicktype 'tray'
-#stop
 endif
 
-
-
 # keep taste id buff
-if skill 'tasteidentification' > 20 and not findbuff 'herbal poultice'
+if skill 'taste identification' > 20 and not findbuff 'herbal poultice'
 skill 'tasteidentification'
 wft
-targetrelloc 0 0 0
-#stop
+targettype 3834 backpack
 endif
 
 if skill 'magery' >= 40 and not findbuff 'Magic Reflection'
