@@ -30,13 +30,6 @@
 # ################################
 # CREATE ALL LISTS FOR CONFIG
 
-if weight > maxweight 
-potion 'strength'
-wait 600
-if weight > maxweight 
-overhead '== EXCESSO DE PESO NÃO PDOE RECALAR ==' 39
-endif
-endif
 
 if not listexists 'config_lists_recall_home'
     createlist 'config_lists_recall_home'
@@ -45,11 +38,9 @@ else
 endif
 
 pushlist 'config_lists_recall_home' 'use_charges'
-pushlist 'config_lists_recall_home' 'use_recall_scrolls'
 
 # routine-related lists
 pushlist 'config_lists_recall_home' 'use_charges'
-pushlist 'config_lists_recall_home' 'use_recall_scrolls'
 pushlist 'config_lists_recall_home' 'runetome_rune_btn_number'
 pushlist 'config_lists_recall_home' 'runebook_rune_btn_number'
 
@@ -80,15 +71,10 @@ foreach runetome_rune_btn in 'runetome_rune_btn_number'
     foreach runebook_rune_btn in 'runebook_rune_btn_number'
 
         if counttype "Black Pearl%s%" backpack == 0 or counttype "Blood Moss" backpack == 0 or counttype "Mandrake Root%s%" backpack == 0
-            if counttype "Recall" backpack
-                overhead 'no regs. trying scroll...'
-                pushlist 'use_scroll' 'yes'
-            else
                 overhead 'no regs. trying charges...'
                 pushlist 'use_charges' 'yes'
-            endif
         endif
-
+        
         if findtype 'runetome' backpack as rtome
             if not inlist 'use_charges' 'yes'
                 hotkey 'Recall'
