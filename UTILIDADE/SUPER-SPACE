@@ -157,16 +157,3 @@ if skill 'magery' >= 40 and not findbuff 'Magic Reflection'
         sysmsg 'no reflect regs or scroll!' 39
     endif
 endif
-
-#ATIVA O HUNTING MODE E TRACKEA PLAYERS PROXIMO
-if skill 'tracking' >= 20
-skill 'tracking'
-waitforgump 4267467659
-if ingump 'Begin Hunting' 4267467659
-waitforgump 4267467659
-gumpresponse 6 4267467659
-overhead '== TRACK ATIVO =='
-endif
-waitforgump 4267467659
-gumpresponse 5 4267467659
-endif
