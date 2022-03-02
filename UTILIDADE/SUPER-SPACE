@@ -1,7 +1,72 @@
-#INTERRUPT/POUCH/RODA GATE TUDO EM 1TECLA
+# the idea here is to execute only 1 action per key press
+#INTERRUPT/GUMP DE RESS/BANDS/POUCH/RODA GATE/ATIVA OS BUFF DE CAMPING, TASTE ID, FOOD, REFLECT E TRACKING TUDO EM 1TECLA
 
 interrupt
+
+###############################
+# first run actions
+###############################
+
+if not listexists 'first_run_done'
+    createlist 'first_run_done'
+endif
+if not listexists 'backpack_opened_once'
+    createlist 'backpack_opened_once'
+endif
+if not listexists 'reg_bag_opened_once'
+    createlist 'reg_bag_opened_once'
+endif
+
+if diffhits < 10 and not inlist 'first_run_done' 'yes'
+    clearsysmsg
+
+    if not inlist 'backpack_opened_once' 'yes'
+        if findlayer self 'backpack' as char_backpack
+            sysmsg 'Opening backpack first time...' 91
+            overhead 'opening backpack...' 91
+            dclick char_backpack
+            wait 550
+            if insysmsg 'You must wait to perform another action'
+                overhead 'failed to open backpack!' 41
+                stop
+            endif
+            pushlist 'backpack_opened_once' 'yes'
+        endif
+    endif
+
+    if not inlist 'reg_bag_opened_once' 'yes'
+        if findtype 'bag' backpack as reg_bag
+            sysmsg 'Opening reagent bag first time...' 91
+            overhead 'opening reg bag...' 91
+            dclick reg_bag
+            wait 550
+            if insysmsg 'You must wait to perform another action'
+                overhead 'failed to open reg bag!' 41
+                stop
+            endif
+            pushlist 'reg_bag_opened_once' 'yes'
+        endif
+    endif
+
+    overhead 'FIRST RUN FINISHED' 91
+    pushlist 'first_run_done' 'yes'
+endif
+
+
+###############################
+# confirm ress if gump present
+###############################
+
+if gumpexists 2957810225
+    overhead 'RESSING...' 10
+    gumpresponse 1 2957810225
+    stop
+endif
+
+###############################
 # handle paralyze
+###############################
+
 if findbuff 'paralyze'
     if not findtype 'pouch' 'backpack' 38
         overhead '** NO POUCH **' 39
@@ -12,9 +77,96 @@ if findbuff 'paralyze'
     stop
 endif
 
-# if there is a moongate nearby, enter it
+
+###############################
+# apply bandages if has healing
+###############################
+
+if diffhits > 0 and skill 'healing' >= 20 and findtype 'clean bandage%s%' backpack
+    if not timerexists 'bandage_timer'
+        createtimer 'bandage_timer'
+        settimer 'bandage_timer' 99999
+    endif
+
+    # set bandage_delay based on char dex
+    removelist 'bandage_delay'
+    createlist 'bandage_delay'
+
+    if dex >= 100
+        pushlist 'bandage_delay' 10000
+    elseif dex <= 80
+        pushlist 'bandage_delay' 15000
+    endif
+
+    if atlist 'bandage_delay' 0 as bandage_delay
+        if timer 'bandage_timer' >= bandage_delay
+            script 'PVP\BANDS'
+        endif
+    endif
+endif
+
+###############################
+# enter moongate if one nearby
+###############################
+
 if findtype 'blue moongate' 'ground' any any 2
-hotkey 'Play Script: UTILIDADE\rodarGATE'
+    script 'UTILIDADE\GATE'
     wait 10
     stop
+endif
+
+######################################
+# OTHER SKILL BUFFS
+######################################
+
+# keep campfire buff
+if skill 'camping' > 20 and not findbuff 'campfire visit'
+    if not findtype 'campfire' ground any any 2 and findtype 'kindling' backpack
+    while findtype 'kindling' backpack
+    dclicktype 'kindling' backpack
+wait 3200
+endwhile
+#stop
+endif
+endif
+
+
+# maintain food satisfaction buff
+if not findbuff 'Food Satisfaction' and findtype 'tray' backpack
+    dclicktype 'tray'
+#stop
+endif
+
+
+
+# keep taste id buff
+if skill 'tasteidentification' > 20 and not findbuff 'herbal poultice'
+skill 'tasteidentification'
+wft
+targetrelloc 0 0 0
+#stop
+endif
+
+if skill 'magery' >= 40 and not findbuff 'Magic Reflection'
+    if counttype 'Garlic' > 0 and counttype 'Mandrake Root%s%' > 0 and counttype "Spider's Silk" > 0
+        cast 'Magic Reflection'
+    elseif counttype 'Magic Reflection' > 0
+        cast 'Magic Reflection'
+    else
+        sysmsg 'No Reagents Or Scrolls for Magic Reflection'
+        sysmsg 'no reflect regs or scroll!' 39
+    endif
+endif
+
+#ATIVA O HUNTING MODE E TRACKEA PLAYERS PROXIMO
+if skill 'tracking' >= 20
+skill 'tracking'
+waitforgump 4267467659
+if ingump 'Begin Hunting' 4267467659
+waitforgump 4267467659
+gumpresponse 6 4267467659
+overhead '== TRACK ATIVO =='
+endif
+waitforgump 4267467659
+gumpresponse 5 4267467659
 endif
