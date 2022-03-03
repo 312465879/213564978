@@ -1,5 +1,5 @@
 # the idea here is to execute only 1 action per key press
-#INTERRUPT/GUMP DE RESS/BANDS/POUCH/RODA GATE/ATIVA OS BUFF DE CAMPING, TASTE ID, FOOD, REFLECT E TRACKING TUDO EM 1TECLA
+#INTERRUPT/GUMP DE RESS/POUCH/RODA GATE/ATIVA OS BUFF DE CAMPING, TASTE ID, FOOD, REFLECT E TRACKING TUDO EM 1TECLA
 
 interrupt
 
@@ -77,40 +77,12 @@ if findbuff 'paralyze'
     stop
 endif
 
-
-###############################
-# apply bandages if has healing
-###############################
-
-if diffhits > 0 and skill 'healing' >= 20 and findtype 'clean bandage%s%' backpack
-    if not timerexists 'bandage_timer'
-        createtimer 'bandage_timer'
-        settimer 'bandage_timer' 99999
-    endif
-
-    # set bandage_delay based on char dex
-    removelist 'bandage_delay'
-    createlist 'bandage_delay'
-
-    if dex >= 100
-        pushlist 'bandage_delay' 10000
-    elseif dex <= 80
-        pushlist 'bandage_delay' 15000
-    endif
-
-    if atlist 'bandage_delay' 0 as bandage_delay
-        if timer 'bandage_timer' >= bandage_delay
-            script 'PVP\BANDS'
-        endif
-    endif
-endif
-
 ###############################
 # enter moongate if one nearby
 ###############################
 
 if findtype 'blue moongate' 'ground' any any 2
-    script 'UTILIDADE\GATE'
+hotkey 'Play Script: UTILIDADE\rodarGATE'
     wait 10
     stop
 endif
