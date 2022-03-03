@@ -45,7 +45,7 @@ endif
 if skill 'healing' >= 20 and findtype "clean bandage%s%" backpack
 if not timerexists "bands"
 createtimer "bands"
-settimer "bands" 99999
+settimer "bands" 15000
 endif
 if timer "bands" >= 14500
 dclicktype "clean bandage%s%" backpack
