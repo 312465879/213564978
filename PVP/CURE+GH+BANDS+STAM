@@ -6,62 +6,20 @@
 #MIN 25DEX = TIMER 14500 
 #MAX 100DEX = TIMER 9500
 
-if str < 100 and findtype 'white potion' 'backpack'
+if str < 100 and findtype 'white potion' backpack
 if targetexists 'beneficial'
 hotkey 'target self'
 endif
 potion 'strength'
 endif
 
-if skill 'healing' >= 20 and findtype "clean bandage%s%" backpack
-if not timerexists "bands"
-createtimer "bands"
-settimer "bands" 14500
-endif
-if findtype "clean bandage%s%" backpack
-if poisoned
-if targetexists 'beneficial'
-hotkey 'target self'
-endif
-if timer "bands" >= 14500
-    if targetexists 'harmful'
-clearall
-endif
-dclicktype "clean bandage%s%" backpack
-waitfortarget
-hotkey "Target Self"
-endif
-endif
-if insysmsg "begin applying"
-settimer "bands" 0
-endif
-endif
-
-if hp < maxhp
-if targetexists 'beneficial'
-hotkey 'target self'
-endif
-if timer "bands" >= 14500
-    if targetexists 'harmful'
-clearall
-endif
-dclicktype "clean bandage%s%" backpack
-waitfortarget
-hotkey "Target Self"
-endif
-endif
-if insysmsg "begin applying"
-settimer "bands" 0
-endif
-endif
-
 if poisoned
 if hp < maxhp
 if targetexists 'beneficial'
 hotkey 'target self'
 endif
 endif
-if not findtype 'orange potion'
+if not findtype 'orange potion' backpack
         overhead 'NO CURE POTS'
     else
         potion 'cure'
@@ -76,16 +34,34 @@ if hp < maxhp
 if targetexists 'beneficial'
 hotkey 'target self'
 endif
-endif
-if hp < maxhp
-    if not findtype 'yellow potion'
-        overhead 'NO HEAL POTS'
-    else
-        overhead '** heal pot **'
         potion 'heal'
         wait 50
-        stop
     endif
+
+if hp < maxhp
+if targetexists 'beneficial'
+hotkey 'target self'
+endif
+if skill 'healing' >= 20 and findtype "clean bandage%s%" backpack
+if not timerexists "bands"
+createtimer "bands"
+settimer "bands" 99999
+endif
+if timer "bands" >= 14500
+dclicktype "clean bandage%s%" backpack
+waitfortarget
+hotkey "Target Self"
+wait 600
+if insysmsg "begin applying"
+settimer "bands" 0
+endif
+endif
+endif
+endif
+endif
+
+if not findtype 'yellow potion' backpack
+    overhead 'SEM POT DE GH'
 endif
 
 # restore stamina (pot or food)
