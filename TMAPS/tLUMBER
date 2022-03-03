@@ -55,7 +55,7 @@ wait 500
 hotkey 'target self'
 wait 4500
 if insysmsg 'do not see any'
-hotkey 'Play Script: UTILIDADE\ANTIPK'
+hotkey 'Play Script: TMAPS\ANTIPK'
 endif
 if insysmsg 'you have completely exhausted your lumber camp'
 lifttype '5356' 1 backpack 2799
