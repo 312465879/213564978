@@ -1,0 +1,5 @@
+#NECESSARIO PRA PARTE DE AWAY MODE DOS MACROS DE tMINING/LUMBER
+if insysmsg 'now tracking'
+hotkey 'Play Script: UTILIDADE\recallR1'
+endif
+loop
