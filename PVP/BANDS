@@ -6,7 +6,7 @@
 if skill 'healing' >= 60 and findtype "clean bandage%s%" backpack
 if not timerexists "bands"
 createtimer "bands"
-settimer "bands" 14500
+settimer "bands" 99999
 endif
 if findtype "clean bandage%s%" backpack
 if poisoned
