@@ -3,7 +3,7 @@
 #MIN 25DEX = TIMER 14500 
 #MAX 100DEX = TIMER 9500
 
-if skill 'healing' >= 60
+if skill 'healing' >= 60 and findtype "clean bandage%s%" backpack
 if not timerexists "bands"
 createtimer "bands"
 settimer "bands" 14500
