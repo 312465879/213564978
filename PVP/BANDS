@@ -19,6 +19,7 @@ waitfortarget
 hotkey "Target Self"
 endif
 endif
+wait 600
 if insysmsg "begin applying"
 settimer "bands" 0
 endif
@@ -34,6 +35,7 @@ waitfortarget
 hotkey "Target Self"
 endif
 endif
+wait 600
 if insysmsg "begin applying"
 settimer "bands" 0
 endif
