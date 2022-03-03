@@ -1,4 +1,0 @@
-if insysmsg 'now tracking'
-hotkey 'Play Script: UTILIDADE\recallR1'
-endif
-loop
