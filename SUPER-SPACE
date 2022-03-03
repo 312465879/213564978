@@ -1,5 +1,4 @@
-# the idea here is to execute only 1 action per key press
-#INTERRUPT/GUMP DE RESS/POUCH/RODA GATE/ATIVA OS BUFF DE CAMPING, TASTE ID, FOOD, REFLECT E TRACKING TUDO EM 1TECLA
+#INTERRUPT/GUMP DE RESS/POUCH/ATIVA OS BUFF DE CAMPING, TASTE ID, FOOD, REFLECT E TRACKING TUDO EM 1TECLA
 
 interrupt
 
@@ -52,7 +51,6 @@ if diffhits < 10 and not inlist 'first_run_done' 'yes'
     pushlist 'first_run_done' 'yes'
 endif
 
-
 ###############################
 # confirm ress if gump present
 ###############################
@@ -77,16 +75,6 @@ if findbuff 'paralyze'
     stop
 endif
 
-###############################
-# enter moongate if one nearby
-###############################
-
-if findtype 'blue moongate' 'ground' any any 2
-hotkey 'Play Script: UTILIDADE\rodarGATE'
-    wait 10
-    stop
-endif
-
 ######################################
 # OTHER SKILL BUFFS
 ######################################
@@ -102,10 +90,10 @@ endwhile
 endif
 endif
 
-
 # maintain food satisfaction buff
 if not findbuff 'Food Satisfaction' and findtype 'tray' backpack
     dclicktype 'tray'
+#stop
 endif
 
 # keep taste id buff
