@@ -15,7 +15,10 @@ endif
 endif
 endif
 endif
-if poisoned
+if poisoned and hits < 80
+if targetexists 'beneficial'
+hotkey 'target self'
+endif
             potion 'cure'
 endif
 
