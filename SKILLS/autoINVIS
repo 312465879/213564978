@@ -1,0 +1,8 @@
+if not hidden
+cast 'Invisibility'
+waitfortarget
+target 'self'
+hotkey 'Toggle War Only'
+hotkey 'Toggle Peace Only'
+endif
+loop
