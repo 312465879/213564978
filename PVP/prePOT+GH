@@ -1,0 +1,30 @@
+#MACRO PARA EVENTOS PVP
+#TEM QUE CASTAR O GH NA MAO
+#ASSIM QUE TOMAR DANO ELE VAI SOLTAR O GH E USAR POT SE AINDA FOR PRECISO
+if poisoned and hits < 80
+if targetexists 'beneficial'
+hotkey 'target self'
+endif
+            potion 'cure'
+endif
+
+if hits < 80 and not poisoned
+if targetexists 'beneficial'
+hotkey 'target self'
+if str <= 100
+potion 'strength'
+endif
+wait 600
+endif
+
+if not timerexists "potgh"
+    createtimer "potgh"
+    settimer "potgh" 10000
+    endif
+    if timer "potgh" >= 10000
+potion 'heal'
+wait 1000
+settimer "potgh" 0
+endif
+endif
+loop
