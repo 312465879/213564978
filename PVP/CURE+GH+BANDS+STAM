@@ -2,10 +2,6 @@
 #LEMBRE-SE DE COLOCAR UM ATALHO SEPARADO PARA AS POTS DE REFRESH/EXPLOSION
 #ESSE MACRO SEMPRE QUE VC ESTIVER COM UM BENEFICIAL TARGET(GH POR EXEMPLO) ELE VAI SOLTAR SELF ANTES DE TOMAR A POT NECESSARIA
 #LEMBRE-SE DE AJEITAR O TIMER CONFORME A SUA DEX CASO TENHA HEALING
-#A CADA 20PONTOS DE DEX = 1250 A MENOS NO TIMER
-#MIN 25DEX = TIMER 14500 
-#MAX 100DEX = TIMER 9500
-
 if str < 100 and findtype 'white potion' backpack
 if targetexists 'beneficial'
 hotkey 'target self'
@@ -43,19 +39,8 @@ if targetexists 'beneficial'
 hotkey 'target self'
 endif
 if skill 'healing' >= 20 and findtype "clean bandage%s%" backpack
-if not timerexists "bands"
-createtimer "bands"
-settimer "bands" 15000
-endif
-if timer "bands" >= 14500
-dclicktype "clean bandage%s%" backpack
-waitfortarget
-hotkey "Target Self"
-wait 600
-if insysmsg "begin applying"
-settimer "bands" 0
-endif
-endif
+if not bandaging
+    hotkey "bandage self"
 endif
 endif
 endif
