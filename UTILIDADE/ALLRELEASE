@@ -1,3 +1,4 @@
+#CUIDADO PARA NÃO USAR NO TAMER E PERDER OS PETS
 say 'all release'
 waitforgump 931181454
 gumpresponse 1 931181454
