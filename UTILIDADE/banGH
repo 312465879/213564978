@@ -1,0 +1,14 @@
+#MACRO DE BANIR NA GH
+if not gumpexists 2490201206
+    dclick 0x43A8604F
+endif
+skill 'detectinghidden'
+wft 300
+target 'self'
+if gumpexists 2490201206
+gumpresponse 14 2490201206
+waitforgump 2490201206
+hotkey 'Next Non-Friendly Player Target'
+target 'lasttarget'
+endif
+loop
