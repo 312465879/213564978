@@ -1,40 +1,6 @@
-#LEMBRE-SE DE AJEITAR O TIMER CONFORME A SUA DEX
-#A CADA 20PONTOS DE DEX = 1250 A MENOS NO TIMER
-#MIN 25DEX = TIMER 14500 
-#MAX 100DEX = TIMER 9500
-
-if skill 'healing' >= 60 and findtype "clean bandage%s%" backpack
-if not timerexists "bands"
-createtimer "bands"
-settimer "bands" 9500
-endif
-while not dead
-if findtype "clean bandage%s%" backpack
-if poisoned
-if timer "bands" >= 9500
-dclicktype "clean bandage%s%" backpack
-waitfortarget
-hotkey "Target Self"
-wait 600
-endif
-endif
-wait 600
-if insysmsg "begin applying"
-settimer "bands" 0
-endif
-endif
-
 if hp < maxhp
-if timer "bands" >= 9500
-dclicktype "clean bandage%s%" backpack
-waitfortarget
-hotkey "Target Self"
-wait 600
-endif
-endif
-wait 600
-if insysmsg "begin applying"
-settimer "bands" 0
+if not bandaging
+    hotkey "bandage self"
 endif
 endif
 loop
