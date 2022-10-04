@@ -1,3 +1,6 @@
+#ELE RECALA AUTOMATICO NA 1RUNA DO BOOK
+#PARA ALTERAR O RECALL É SÓ MUDAR O NUMERO NA LINHA 12 DESSE MACRO
+
 if weight >= maxweight 
     hotkey 'Drink Strength'
 endif
