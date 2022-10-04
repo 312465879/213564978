@@ -1,0 +1,121 @@
+#AS RUNAS DEVEM SER COLOCADAS CONFORME A FOTO DO LINK https://i.imgur.com/eBzZXXh.png
+#MACRO COM O RANGE DE RUNAS SETADO PARA QUEM NÃO TEM INSCRIPTION
+#CASO VC TENHA ALTERE OS VALORES 7 ABAIXO PARA 11 E OS 5 PARA 9
+
+clearignore 
+wait 1000
+@setvar! gc 1000
+
+    
+    overhead 'Start Walking'
+    wait gc
+    overhead '2'
+    wait 1000
+    overhead '1'
+    wait 1000
+
+if findtype 39892 backpack any any as AgressionRune
+        sysmsg '> AgressionRune'
+    while findtype 39892 backpack and not findtype 39892 ground 2117 any 3
+            dclick AgressionRune backpack
+        endwhile
+    endif
+
+if findtype 39897 backpack any any as FuryRune
+        sysmsg '> FuryRune'
+    while findtype 39897 backpack and not findtype 39897 ground 2377 any 7
+            dclick FuryRune backpack
+        endwhile
+    endif
+
+if findtype 39889 backpack any any as WhirlwindRune
+        sysmsg '> WhirlwindRune'
+    while findtype 39889 backpack and not findtype 39889 ground any any 7
+            dclick WhirlwindRune backpack
+        endwhile
+    endif
+
+if findtype 39918 backpack any any as FortificationRune
+        sysmsg '> FortificationRune'
+    while findtype 39918 backpack and not findtype 39918 ground any any 7
+            dclick FortificationRune backpack
+        endwhile
+    endif
+
+if findtype 39898 backpack any any as ImmunityRune
+        sysmsg '> ImmunityRune'
+    while findtype 39898 backpack and not findtype 39898 ground any any 7
+            dclick ImmunityRune backpack
+        endwhile
+    endif
+
+if findtype 39909 backpack any any as EssenceRune
+        sysmsg '> EssenceRune'
+    while findtype 39909 backpack and not findtype 39909 ground any any 7
+            dclick EssenceRune backpack
+        endwhile
+    endif
+
+if findtype 39896 backpack any any as HealingRune
+        sysmsg '> HealingRune'
+    while findtype 39896 backpack and not findtype 39896 ground any any 7
+            dclick HealingRune backpack
+        endwhile
+    endif
+
+if findtype 39917 backpack any any as ChemistryRune
+        sysmsg '> ChemistryRune'
+    while findtype 39917 backpack and not findtype 39917 ground any any 7
+            dclick ChemistryRune backpack
+        endwhile
+    endif
+ 
+if findtype 39916 backpack any any as SpellshieldingRune
+        sysmsg '> SpellshieldingRune'
+    while findtype 39916 backpack and not findtype 39916 ground any any 7
+            dclick SpellshieldingRune backpack
+        endwhile
+    endif
+
+if findtype 39896 backpack any any as HealingRune
+        sysmsg '> HealingRune'
+    while findtype 39896 backpack and not findtype 39896 ground any any 7
+            dclick HealingRune backpack
+        endwhile
+    endif
+
+if findtype 39905 backpack any any as PoisonwardingRune
+        sysmsg '> PoisonwardingRune'
+    while findtype 39905 backpack and not findtype 39905 ground any any 7
+            dclick PoisonwardingRune backpack
+        endwhile
+    endif
+
+if findtype 39891 backpack any any as EmpowermentRune
+        sysmsg '> EmpowermentRune'
+while findtype 39891 backpack and not findtype 39891 ground any any 7
+    if not findtype 39917 ground any any 5
+            dclick EmpowermentRune backpack
+endif
+endif
+        endwhile
+
+if findtype 39912 backpack any any as FocusRune
+        sysmsg '> FocusRune'
+while findtype 39912 backpack and not findtype 39912 ground any any 7
+    if not findtype 39917 ground any any 5
+            dclick FocusRune backpack
+endif
+endif
+        endwhile
+
+if findtype 39911 backpack any any as ToxicityRune
+        sysmsg '> ToxicityRune' 
+while findtype 39911 backpack and not findtype 39911 ground any any 7
+    if not findtype 39917 ground any any 5
+            dclick ToxicityRune backpack
+endif
+endif
+        endwhile
+
+    overhead 'All Runes Done! 
