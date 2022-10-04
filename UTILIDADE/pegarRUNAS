@@ -1,0 +1,32 @@
+#ELE PEGA AS RUNAS DIRETO DO BOOK QUE PRECISA ESTAR NO CHAO PROXIMO A VOCÊ
+if findtype '29104' ground 2085 any as ArcaneBook
+dclick ArcaneBook 
+waitforgump 3561255175
+gumpresponse 10 3561255175
+waitforgump 3561255175
+gumpresponse 11 3561255175
+waitforgump 3561255175
+gumpresponse 12 3561255175
+waitforgump 3561255175
+gumpresponse 13 3561255175
+waitforgump 3561255175
+gumpresponse 14 3561255175
+waitforgump 3561255175
+gumpresponse 15 3561255175
+waitforgump 3561255175
+gumpresponse 16 3561255175
+waitforgump 3561255175
+gumpresponse 17 3561255175
+waitforgump 3561255175
+gumpresponse 18 3561255175
+waitforgump 3561255175
+gumpresponse 19 3561255175
+waitforgump 3561255175
+gumpresponse 20 3561255175
+waitforgump 3561255175
+gumpresponse 21 3561255175
+waitforgump 3561255175
+gumpresponse 22 3561255175
+waitforgump 3561255175
+gumpclose 3561255175
+endif
