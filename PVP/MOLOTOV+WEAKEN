@@ -1,21 +1,22 @@
 #MACRO RAPIDO PRA USAR APOS DAR HAMSTRING
 #SÓ FUNCIONA SE TIVER DENTRO DO RANGE DE 12TILES
 #É BOM TER HOTKEYS SEPARADAS PRA JOGAR MOLOTOV E SOLTAR WEAKEN CASO ESSE MACRO FALHE
+#TEM QUE ESTAR USANDO SMART TARGETTING DO RAZOR
 #SEMPRE SET O LAST TARGET NO ALVO ANTES DE USAR ESSE MACRO 
 cast 'telekinesis'
 wft 1500
-hotkey "Last Target"
+target lastharmful
 wait 300
 # waitforsysmsg 'Your next explosion potion' 500
 if insysmsg 'Your next explosion potion'
     overhead '*throwing exp pot' 55 'last'
     potion 'explosion'
     wft 600
-    hotkey "Last Target"
+target lastharmful
     wait 200
     cast 'weaken'
     wft 1500
-    hotkey "Last Target"
+target lastharmful
 else
     sysmsg 'TELEKINESIS FAIL' 55
 endif
