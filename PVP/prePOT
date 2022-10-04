@@ -13,7 +13,10 @@ if insysmsg 'Your concentration is disturbed, thus ruining thy spell.'
 endif
 endif
 endif
-if poisoned
+if poisoned and hits < 80
+if targetexists 'beneficial'
+hotkey 'target self'
+endif
             potion 'cure'
 endif
 
