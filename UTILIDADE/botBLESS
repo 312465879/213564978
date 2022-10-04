@@ -1,0 +1,33 @@
+#DIGITE >INFO NO PERSONAGEM A SER BLESSADO E PEGUE O SERIAL DELE
+#É SÓ IR CRIANDO LINHAS IGUAIS A 12 E ALTERANDO O SERIAL DOS PERSONAGENS A SEREM BLESSADOS
+#COMPRE UMA LANTERNA NO TINKER E TRANQUE DO LADO DO PERSONAGEM QUE VAI CASTAR O BLESS
+#PARA CASTAR O BLESS BASTA APAGAR A LANTERNA
+
+while 1 < 2
+    if findtype '2597' true as 'lanterna'
+    if count "Mandrake Root" < 10
+if findtype 'storage shelf' ground any any as shelf
+    menu shelf 1
+endif
+    endif
+    if not listexists 'blessados'
+        createlist 'blessados'
+pushlist 'blessados' '0x2900D' #NTBALLA
+   endif
+    cast 'Arch Protection'
+    waitfortarget 
+    target 'self'
+    wait 300
+    foreach player in blessados
+        if not dead player
+            cast 'bless'
+            waitfortarget 2000 
+            target player
+            wait 300
+        endif
+    endfor
+    removelist 'blessados'
+    dclick lanterna
+    wait 3000
+endif
+endwhile
