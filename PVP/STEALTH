@@ -1,0 +1,30 @@
+#COMBO PRA USAR NO CHAR HID/STEALTH COM CORDINHA
+hotkey 'Attack Last Target'
+cast 'telekinesis'
+wft 1500
+target lastharmful
+    potion 'explosion'
+    wft 200
+target lastharmful
+    cast 'weaken'
+    wft 1500
+target lastharmful
+    wait 200
+cast 'explosion'
+wft 2000
+target lastharmful
+wait 200
+cast 'energy bolt'
+dclicktype 'rope' backpack
+wait 2000
+if targetexists 'harmful'
+target lastharmful
+wait 200
+cast 'Lightning'
+wft 2000
+target lastharmful
+wait 200
+cast 'energy bolt'
+wft 2000
+target lastharmful
+endif
