@@ -1,0 +1,53 @@
+#VERSAO PARA GUERREIROS
+#EM FASE DE TESTE AINDA A IDEIA É DEIXAR ATIVO ANTES DE SE APROXIMAR DE UM CORPO PRA LOTIAR
+#CHANCE ALTA DE SOBREVIVER AO TOMAR HAMSTRING/COMBO DE UM HIDSTEALTH
+if str < 100
+if not targetexists 'beneficial'
+    potion 'strength'
+if skill 'magery' >= 60
+    cast 'Greater Heal'
+    wait 300
+if insysmsg 'Your concentration is disturbed, thus ruining thy spell.'
+    wait 300
+    cast 'Greater Heal'
+    @clearsysmsg
+endif
+endif
+endif
+endif
+if poisoned
+            potion 'cure'
+endif
+
+if hits < 80 and not poisoned
+if targetexists 'beneficial'
+hotkey 'target self'
+if str <= 100
+potion 'strength'
+endif
+wait 600
+endif
+
+if not timerexists "potgh"
+    createtimer "potgh"
+    settimer "potgh" 10000
+    endif
+    if timer "potgh" >= 10000
+potion 'heal'
+wait 1000
+settimer "potgh" 0
+endif
+
+if skill 'magery' >= 60
+cast 'Greater Heal'
+wft 700
+target 'self'
+endif
+if skill 'healing' >= 20 and findtype "clean bandage%s%" backpack
+if not bandaging
+    hotkey "bandage self"
+endif
+endif
+endif
+
+loop
