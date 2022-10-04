@@ -1,64 +1,99 @@
-#ADICIONEI O GATE CINZA DE CATEDRAL E UM LOOP NO FINAL DO MACRO PRA JA DEIXAR RODANDO ANTES DE SE APROXIMAR DELE
-#SE PREFERIR QUE O MACRO SÓ FUNCIONE
+#MACRO COM LOOP PORTANTO VC PODE USAR ANTES MESMO DE SE APROXIMAR DO GATE
 
-# enter-moongate
-# by gugutz
-# v0.0.2
-#
-
-#################################
-# CHANGELOG
-#################################
-#
-# v0.0.2
-# - Specifies which gump to press the buttons to avoid conflicting with the Necro Gump
-#
-# v0.0.1
-# - Initial release
-
-
-# search for custom color blue moongates (2822=DUNGEON GATE)
-if findtype 'blue moongate' ground 2822 any 2 as mg
-    dclick  mg
-    waitforgump 3773199800 500
+#GATE DE DG SAIDA
+if findtype "blue moongate" ground 2820 any 2 as saidaGate
+    while not gumpexists 3773199800
+        dclick saidaGate
+    wait 300
+    endwhile
     if gumpexists 3773199800
-        overhead '*entering public moongate*' 70
         gumpresponse 2 3773199800
         stop
     endif
     endif
     
-# search for regular blue moongates (color 0) that is opened by players
-if findtype 'blue moongate' ground 0 any 1 as mg
-    dclick  mg
-    overhead '*clicking player moongate*' 70
-
-    waitforgump 3899019871
-    if gumpexists  3899019871
-        overhead '*entering player moongate*' 70
-        gumpresponse 2 3899019871
-        stop
-    endif
-    endif
-
-#GATE CINZA CATEDRAL3899019871
-if findtype 'moongate' ground any any 1 as gate
-    dclick  gate
-waitforgump 3899019871
+#GATE AZUL DE PLAYER
+if findtype "blue moongate" ground 0 any 1 as blueGate
+while not gumpexists 3899019871
+dclick blueGate
+wait 300
+endwhile
+if gumpexists 3899019871
 gumpresponse 2 3899019871
 stop
 endif
+endif
 
-# if we get here, check for chivarly moongate type on the ground
-# chivarly moongate type - 27754
-# chivarly moongate hue - 2091
-if findtype 27754 ground 2091 any 2 as mg
-    useobject mg
-    waitforgump 3773199800 600
+#GATE DE DG  
+if findtype "blue moongate" ground 2822 any 2 as dgGate
+    while not gumpexists 3773199800
+        dclick dgGate
+    wait 300
+    endwhile
     if gumpexists 3773199800
-        overhead '*entering chiv gate*' 70
         gumpresponse 2 3773199800
         stop
     endif
     endif
+   
+#GATE CINZA CATEDRAL
+if findtype 'moongate' ground any any 1 as sscGate
+    while not gumpexists 3899019871
+        dclick sscGate
+    wait 300
+    endwhile
+    if gumpexists 3899019871
+        gumpresponse 2 3899019871
+        stop
+    endif
+    endif   
+ 
+    #GATE OMNI ENTRADA
+    if findtype '27754' ground 2260 any 2 as omniGate
+    while not gumpexists 687547349
+        dclick omniGate
+    wait 300
+    endwhile
+    if gumpexists 687547349
+        gumpresponse 10 687547349
+        stop
+    endif
+    endif
+    
+#GATE OMNI SAIDA
+if findtype '27754' ground 2821 any 2 as omnisdGate
+    while not gumpexists 3773199800
+    dclick omnisdGate
+    wait 300
+    endwhile
+    if gumpexists 3773199800
+        gumpresponse 2 3773199800
+        stop
+    endif
+    endif
+    
+#GATE CHIVALRY
+if findtype '30528' ground 2091 any 2 as chivGate
+    while not gumpexists 3773199800
+        dclick chivGate
+    wait 300
+    endwhile
+    if gumpexists 3773199800
+        gumpresponse 2 3773199800
+        stop
+    endif
+    endif     
+    
+#MOONGATE PUBLICO  
+if findtype "blue moongate" ground 2821 any 2 as publicGate
+    while not gumpexists 3773199800
+        dclick publicGate
+    wait 300
+    endwhile
+    if gumpexists 3773199800
+        gumpresponse 2 3773199800
+        stop
+    endif
+    endif    
+    
     loop
