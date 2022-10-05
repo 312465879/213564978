@@ -1,99 +1,107 @@
 #MACRO COM LOOP PORTANTO VC PODE USAR ANTES MESMO DE SE APROXIMAR DO GATE
 
-#GATE DE DG SAIDA
-if findtype "blue moongate" ground 2820 any 2 as saidaGate
-    while not gumpexists 3773199800
-        dclick saidaGate
-    wait 300
-    endwhile
-    if gumpexists 3773199800
+#GATE DG ENTRADA
+if findtype "blue moongate" ground 2822 any 2 as dgGate
+    if not gumpexists 3773199800
+        dclick dgGate
+    endif
+    while gumpexists 3773199800
         gumpresponse 2 3773199800
+    if not gumpexists 3773199800
         stop
     endif
+endwhile
     endif
+
+#GATE DG SAIDA
+if findtype "blue moongate" ground 2820 any 2 as saidaGate
+    if not gumpexists 3773199800
+        dclick saidaGate
+    endif
+    while gumpexists 3773199800
+        gumpresponse 2 3773199800
+    if not gumpexists 3773199800
+        stop
+    endif
+endwhile
+    endif    
     
 #GATE AZUL DE PLAYER
 if findtype "blue moongate" ground 0 any 1 as blueGate
-while not gumpexists 3899019871
-dclick blueGate
-wait 300
-endwhile
-if gumpexists 3899019871
-gumpresponse 2 3899019871
-stop
-endif
-endif
-
-#GATE DE DG  
-if findtype "blue moongate" ground 2822 any 2 as dgGate
-    while not gumpexists 3773199800
-        dclick dgGate
-    wait 300
-    endwhile
-    if gumpexists 3773199800
-        gumpresponse 2 3773199800
+    if not gumpexists 3899019871
+        dclick blueGate
+    endif
+    while gumpexists 3899019871
+        gumpresponse 2 3899019871
+    if not gumpexists 3899019871
         stop
     endif
-    endif
-   
+endwhile
+    endif   
+    
 #GATE CINZA CATEDRAL
 if findtype 'moongate' ground any any 1 as sscGate
-    while not gumpexists 3899019871
+    if not gumpexists 3899019871
         dclick sscGate
-    wait 300
-    endwhile
-    if gumpexists 3899019871
+    endif
+    while gumpexists 3899019871
         gumpresponse 2 3899019871
+    if not gumpexists 3899019871
         stop
     endif
-    endif   
- 
-    #GATE OMNI ENTRADA
-    if findtype '27754' ground 2260 any 2 as omniGate
-    while not gumpexists 687547349
+endwhile
+    endif
+
+#GATE OMNI ENTRADA
+if findtype '27754' ground 2260 any 2 as omniGate
+    if not gumpexists 687547349
         dclick omniGate
-    wait 300
-    endwhile
-    if gumpexists 687547349
+    endif
+    while gumpexists 687547349
         gumpresponse 10 687547349
+    if not gumpexists 687547349
         stop
     endif
+endwhile
+    endif
+
+#GATE CHIVALRY
+if findtype '30528' ground 2091 any 2 as chivGate
+    if not gumpexists 3773199800
+        dclick chivGate
+    endif
+    while gumpexists 3773199800
+        gumpresponse 2 3773199800
+    if not gumpexists 3773199800
+        stop
+    endif
+endwhile
+    endif
+
+#MOONGATE PUBLICO
+if findtype "blue moongate" ground 2821 any 2 as publicGate
+    if not gumpexists 3773199800
+        dclick publicGate
+    endif
+    while gumpexists 3773199800
+        gumpresponse 2 3773199800
+    if not gumpexists 3773199800
+        stop
+    endif
+endwhile
     endif
     
 #GATE OMNI SAIDA
 if findtype '27754' ground 2821 any 2 as omnisdGate
-    while not gumpexists 3773199800
-    dclick omnisdGate
-    wait 300
-    endwhile
-    if gumpexists 3773199800
+    if not gumpexists 3773199800
+        dclick omnisdGate
+    endif
+    while gumpexists 3773199800
         gumpresponse 2 3773199800
+    if not gumpexists 3773199800
         stop
     endif
+endwhile
     endif
-    
-#GATE CHIVALRY
-if findtype '30528' ground 2091 any 2 as chivGate
-    while not gumpexists 3773199800
-        dclick chivGate
-    wait 300
-    endwhile
-    if gumpexists 3773199800
-        gumpresponse 2 3773199800
-        stop
-    endif
-    endif     
-    
-#MOONGATE PUBLICO  
-if findtype "blue moongate" ground 2821 any 2 as publicGate
-    while not gumpexists 3773199800
-        dclick publicGate
-    wait 300
-    endwhile
-    if gumpexists 3773199800
-        gumpresponse 2 3773199800
-        stop
-    endif
-    endif    
     
     loop
