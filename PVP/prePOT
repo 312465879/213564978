@@ -34,11 +34,16 @@ if not timerexists "potgh"
     settimer "potgh" 10000
     endif
     if timer "potgh" >= 10000
+if targetexists 'beneficial'
+hotkey 'target self'
+endif
 potion 'heal'
 wait 1000
 settimer "potgh" 0
 endif
-
+if targetexists 'beneficial'
+hotkey 'target self'
+endif
 cast 'Greater Heal'
 wft 700
 target 'self'
