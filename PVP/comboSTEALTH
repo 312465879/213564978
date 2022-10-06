@@ -1,22 +1,43 @@
-#COMBO PRA USAR NO CHAR HID/STEALTH COM CORDINHA
+#O COMBO VAI SOLTAR TELEKINESIS/EXPLOPOT/WEAKEN/EXPLO/EB/ABRIR O TARGET DA CORDA 
+#VC PRECISA CLICAR DE FORMA MANUAL NA DIREÇÃO Q O INIMIGO TA FUGINDO
+#TENTARA FINALIZAR DANDO LIGHT E OUTRO WEAKEN
+@clearsysmsg
 hotkey 'Attack Last Target'
 cast 'telekinesis'
+wait 300
+if insysmsg 'Your concentration is disturbed, thus ruining thy spell.'
+    wait 700
+    cast 'telekinesis'
+    @clearsysmsg
+endif
 wft 1500
 target lastharmful
     potion 'explosion'
     wft 200
 target lastharmful
     cast 'weaken'
+    wait 300
+    if insysmsg 'Your concentration is disturbed, thus ruining thy spell.'
+        wait 700
+        cast 'weaken'
+    @clearsysmsg
+    endif
     wft 1500
 target lastharmful
     wait 200
 cast 'explosion'
+wait 300
+if insysmsg 'Your concentration is disturbed, thus ruining thy spell.'
+    wait 700
+cast 'explosion'
+@clearsysmsg
+endif
 wft 2000
 target lastharmful
 wait 200
 cast 'energy bolt'
 dclicktype 'rope' backpack
-wait 2000
+wait 2200
 if targetexists 'harmful'
 target lastharmful
 wait 200
@@ -24,7 +45,7 @@ cast 'Lightning'
 wft 2000
 target lastharmful
 wait 200
-cast 'energy bolt'
+cast 'weaken'
 wft 2000
 target lastharmful
 endif
