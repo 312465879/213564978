@@ -38,6 +38,6 @@ if not bandaging
     hotkey "bandage self"
 endif
 endif
+dress 'escudo'
 endif
-
 loop
