@@ -2,113 +2,118 @@
 
 #GATE DG ENTRADA
 if findtype "blue moongate" ground 2822 any 2 as dgGate
+    wait 350
     if not gumpexists 3773199800
         dclick dgGate
     endif
-    wait 300
+
     while gumpexists 3773199800
         gumpresponse 2 3773199800
     if not gumpexists 3773199800
         stop
     endif
-endwhile
-    endif
+    endwhile
+endif
 
 #GATE DG SAIDA
 if findtype "blue moongate" ground 2820 any 2 as saidaGate
+    wait 350
     if not gumpexists 3773199800
         dclick saidaGate
     endif
-    wait 300
+
     while gumpexists 3773199800
         gumpresponse 2 3773199800
     if not gumpexists 3773199800
         stop
     endif
-endwhile
-    endif    
+    endwhile
+endif   
     
 #GATE AZUL DE PLAYER
 if findtype "blue moongate" ground 0 any 1 as blueGate
+    wait 350
+    while gumpexists 3899019871
+        gumpresponse 2 3899019871
+    if not gumpexists 3899019871
+        stop
+    endif
+    endwhile
     if not gumpexists 3899019871
         dclick blueGate
     endif
-    wait 300
-    while gumpexists 3899019871
-        gumpresponse 2 3899019871
-    if not gumpexists 3899019871
-        stop
-    endif
-endwhile
-    endif   
+    endif      
     
 #GATE CINZA CATEDRAL
 if findtype 'moongate' ground any any 1 as sscGate
-    if not gumpexists 3899019871
-        dclick sscGate
-    endif
-    wait 300
+    wait 350
     while gumpexists 3899019871
         gumpresponse 2 3899019871
     if not gumpexists 3899019871
         stop
     endif
-endwhile
+    endwhile
+    if not gumpexists 3899019871
+        dclick sscGate
     endif
+    endif   
 
 #GATE OMNI ENTRADA
 if findtype '27754' ground 2260 any 2 as omniGate
-    if not gumpexists 687547349
-        dclick omniGate
-    endif
-    wait 300
+    wait 350
     while gumpexists 687547349
         gumpresponse 10 687547349
     if not gumpexists 687547349
         stop
     endif
 endwhile
+    if not gumpexists 687547349
+        dclick omniGate
+    endif
     endif
 
 #GATE CHIVALRY
 if findtype '30528' ground 2091 any 2 as chivGate
+    wait 350
     if not gumpexists 3773199800
         dclick chivGate
     endif
-    wait 300
+
     while gumpexists 3773199800
         gumpresponse 2 3773199800
     if not gumpexists 3773199800
         stop
     endif
-endwhile
-    endif
+    endwhile
+endif
 
 #MOONGATE PUBLICO
 if findtype "blue moongate" ground 2821 any 2 as publicGate
+    wait 350
     if not gumpexists 3773199800
         dclick publicGate
     endif
-    wait 300
+
     while gumpexists 3773199800
         gumpresponse 2 3773199800
     if not gumpexists 3773199800
         stop
     endif
-endwhile
-    endif
+    endwhile
+endif
     
 #GATE OMNI SAIDA
 if findtype '27754' ground 2821 any 2 as omnisdGate
+    wait 350
     if not gumpexists 3773199800
         dclick omnisdGate
     endif
-    wait 300
+
     while gumpexists 3773199800
         gumpresponse 2 3773199800
     if not gumpexists 3773199800
         stop
     endif
-endwhile
-    endif
+    endwhile
+endif
     loop
