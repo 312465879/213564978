@@ -26,7 +26,7 @@ hotkey 'target self'
 if str <= 100
 potion 'strength'
 endif
-wait 600
+wait 1000
 endif
 
 if not timerexists "potgh"
