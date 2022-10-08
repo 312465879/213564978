@@ -44,9 +44,6 @@ endif
 if targetexists 'beneficial'
 hotkey 'target self'
 endif
-cast 'Greater Heal'
-wft 700
-target 'self'
 endif
 
 loop
