@@ -1,7 +1,7 @@
 #MACRO COM LOOP PORTANTO VC PODE USAR ANTES MESMO DE SE APROXIMAR DO GATE
 #GATE DE CATEDRAL E PLAYER SÓ FUNCIONAM A 1TILE DE DISTANCIA TENTEM NÃO CORRER DELE
 #ADICIONADO GATE PUBLICO QUE LEVA DIRETO PARA ARENA(AREA SAFE)
-
+#PRA ATIVAR O GATE DE TOWNSTRUGGLE TEM Q DELETAR AS // DE TODAS AS ULTIMAS LINHAS DESSE SCRIPT
 
 #GATE DG ENTRADA
 if findtype "blue moongate" ground 2822 any 2 as dgGate
@@ -35,7 +35,7 @@ endif
     
 #GATE AZUL DE PLAYER
 if findtype "blue moongate" ground 0 any 1 as blueGate
-    wait 400
+    wait 350
     while gumpexists 3899019871
         gumpresponse 2 3899019871
     if not gumpexists 3899019871
@@ -49,7 +49,7 @@ if findtype "blue moongate" ground 0 any 1 as blueGate
     
 #GATE CINZA CATEDRAL
 if findtype 'moongate' ground any any 1 as sscGate
-    wait 400
+    wait 350
     while gumpexists 3899019871
         gumpresponse 2 3899019871
     if not gumpexists 3899019871
@@ -107,19 +107,6 @@ if findtype "blue moongate" ground 2821 any 2 as publicGate
     endwhile
 endif
    
-#GATE TOWNSTRUGGLE
-if findtype "blue moongate" ground 2141 any 4 as tsGate
-    while gumpexists 59671150
-        gumpresponse 2 59671150
-    if not gumpexists 59671150
-        stop
-    endif
-    endwhile
-        if not gumpexists 59671150
-        dclick tsGate
-    endif
-endif
- 
 #GATE OMNI SAIDA
 if findtype '27754' ground 2821 any 2 as omnisdGate
     wait 400
@@ -134,4 +121,18 @@ if findtype '27754' ground 2821 any 2 as omnisdGate
     endif
     endwhile
 endif
+
+#GATE TOWNSTRUGGLE
+//if findtype "blue moongate" ground 2141 any 4 as tsGate
+//    while gumpexists 59671150
+//        gumpresponse 2 59671150
+//    if not gumpexists 59671150
+//        stop
+//    endif
+//    endwhile
+//        if not gumpexists 59671150
+//        dclick tsGate
+//    endif
+//endif
+
     loop
