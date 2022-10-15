@@ -2,10 +2,17 @@
 #GATE DE CATEDRAL E PLAYER SÓ FUNCIONAM A 1TILE DE DISTANCIA TENTEM NÃO CORRER DELE
 #ADICIONADO GATE PUBLICO QUE LEVA DIRETO PARA ARENA(AREA SAFE)
 #PRA ATIVAR O GATE DE TOWNSTRUGGLE TEM Q DELETAR AS // DE TODAS AS ULTIMAS LINHAS DESSE SCRIPT
+#MACRO NÃO FUNCIONA SE VC SUBIR NO GATE
+#MACRO NÃO FUNCIONA SE VC SUBIR NO GATE
+#MACRO NÃO FUNCIONA SE VC SUBIR NO GATE
+#MACRO NÃO FUNCIONA SE VC SUBIR NO GATE
+#MACRO NÃO FUNCIONA SE VC SUBIR NO GATE
+
+
 
 #GATE DG ENTRADA
 if findtype "blue moongate" ground 2822 any 2 as dgGate
-    wait 400
+    
     if not gumpexists 3773199800
         dclick dgGate
     endif
@@ -20,7 +27,7 @@ endif
 
 #GATE DG SAIDA
 if findtype "blue moongate" ground 2820 any 2 as saidaGate
-    wait 400
+    
     if not gumpexists 3773199800
         dclick saidaGate
     endif
@@ -35,7 +42,7 @@ endif
     
 #GATE AZUL DE PLAYER
 if findtype "blue moongate" ground 0 any 1 as blueGate
-    wait 350
+    
     while gumpexists 3899019871
         gumpresponse 2 3899019871
     if not gumpexists 3899019871
@@ -49,7 +56,7 @@ if findtype "blue moongate" ground 0 any 1 as blueGate
     
 #GATE CINZA CATEDRAL
 if findtype 'moongate' ground any any 1 as sscGate
-    wait 350
+    
     while gumpexists 3899019871
         gumpresponse 2 3899019871
     if not gumpexists 3899019871
@@ -63,7 +70,7 @@ if findtype 'moongate' ground any any 1 as sscGate
 
 #GATE OMNI ENTRADA
 if findtype '27754' ground 2260 any 2 as omniGate
-    wait 400
+    
     while gumpexists 687547349
         gumpresponse 10 687547349
     if not gumpexists 687547349
@@ -77,7 +84,7 @@ endwhile
 
 #GATE CHIVALRY
 if findtype '30528' ground 2091 any 2 as chivGate
-    wait 400
+    
     if not gumpexists 3773199800
         dclick chivGate
     endif
@@ -92,7 +99,7 @@ endif
 
 #MOONGATE PUBLICO DIRETO PARA ARENA
 if findtype "blue moongate" ground 2821 any 2 as publicGate
-    wait 400
+    
     if not gumpexists 3773199800
         dclick publicGate
     endif
@@ -109,7 +116,7 @@ endif
    
 #GATE OMNI SAIDA
 if findtype '27754' ground 2821 any 2 as omnisdGate
-    wait 400
+    
     if not gumpexists 3773199800
         dclick omnisdGate
     endif
