@@ -1,0 +1,27 @@
+#tem que setar lasttarget pra dar recycle manual em algum item que passou direto pela verificação do macro anterior
+
+if findtype '7864' backpack as toolkit
+@setvar myVariable lasttarget
+getlabel 'myVariable' description
+sysmsg 'Recycled: {{description}}' 85
+                    useobject toolkit
+                waitforgump 949095101
+                gumpresponse 3 949095101
+                waitfortarget
+                lasttarget
+                wait 500
+                waitforgump 949095101
+                gumpclose 949095101
+            endif
+
+if findtype 12686 backpack as essencia
+    say '[aspect'
+    waitforgump 2424293173
+    gumpresponse 100 2424293173
+    waitforgump 2424293173
+    waitfortarget
+    target essencia
+    wait 200
+    waitforgump 2424293173
+    gumpclose 2424293173
+endif
