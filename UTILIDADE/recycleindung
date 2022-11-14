@@ -1,4 +1,12 @@
+#pra quem loteia dentro direto dentro de outros containers que não seja a  bag pura
+#tem q tirar # da frente das linhas abaixo e selecionar o container sempre que rodar o macro
 
+#if varexist bagitem
+#    @unsetvar! bagitem
+#    overhead 'select your item container' sysmsgs_color
+#    sysmsg  'select your item container' sysmsgs_color
+#    @setvar! bagitem
+#endif
 
 if not listexists id_weapon_items
     createlist id_weapon_items
@@ -120,7 +128,10 @@ endif
 if findtype '20495 ' backpack as idWand
     dclick idWand
     waitfortarget
-    target 'backpack'
+    if varexist 'bagitem'
+    target 'bagitem'
+    endif
+target 'backpack'
     wait 425
 endif
 
@@ -178,13 +189,13 @@ if findtype '7864' backpack as toolkit
             @setvar myVariable lasttarget
             getlabel 'myVariable' description
 
-            if 'unidentified' in description
+             if 'unidentified' in description
                 dclick identification_wand
                 waitfortarget
                 target myVariable
                 wait 425
-            endif
-            if 'invulnerability' in description or 'blessed' in description
+             endif
+             if 'invulnerability' in description or 'blessed' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
             else
@@ -208,13 +219,22 @@ if findtype '7864' backpack as toolkit
             @setvar myVariable lasttarget
             getlabel 'myVariable' description
 
-            if 'unidentified' in description
-                dclick identification_wand
-                waitfortarget
-                target myVariable
-                wait 425
-            endif
-            if 'supremely' in description or 'exceedingly' in description and 'slaying' in description or 'blessed' in description
+             if 'unidentified' in description
+                 dclick identification_wand
+                 waitfortarget
+                 target myVariable
+                 wait 425
+             endif
+             if 'blessed' in description
+                overhead 'Item: {{description}}'
+                @ignore myVariable
+            elseif 'supremely' in description
+                overhead 'Item: {{description}}'
+                @ignore myVariable
+            elseif 'exceedingly' in description
+                overhead 'Item: {{description}}'
+                @ignore myVariable
+            elseif 'slaying' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
             else
@@ -238,12 +258,12 @@ if findtype '7864' backpack as toolkit
             @setvar myVariable lasttarget
             getlabel 'myVariable' description
 
-            if 'unidentified' in description
+             if 'unidentified' in description
                 dclick identification_wand
-                waitfortarget
-                target myVariable
-                wait 425
-            endif
+                 waitfortarget
+                 target myVariable
+                 wait 425
+             endif
             
             if 'blessed' in description
                 overhead 'Item: {{description}}'
