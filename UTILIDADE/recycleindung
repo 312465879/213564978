@@ -1,8 +1,8 @@
 #pra quem loteia direto dentro de outros containers(trappouch) que não seja a  bag pura
 #tem q tirar # da frente das linhas abaixo e selecionar o container sempre que rodar o macro
 
-#if varexist bagitem
-#    @unsetvar! bagitem
+#@unsetvar bagitem
+#if not varexist bagitem
 #    overhead 'select your item container' sysmsgs_color
 #    sysmsg  'select your item container' sysmsgs_color
 #    @setvar! bagitem
