@@ -91,6 +91,10 @@ if not listexists id_armor_items
     pushlist id_armor_items "heater shield"
     pushlist id_armor_items "Chaos shield"
     pushlist id_armor_items "Order shield"
+    pushlist id_armor_items "3570"
+    pushlist id_armor_items "3571"
+    pushlist id_armor_items "3572"
+    pushlist id_armor_items "3573"
 endif
 
 if not listexists id_bard_items
@@ -210,7 +214,7 @@ if findtype '7864' backpack as toolkit
                 target myVariable
                 wait 425
             endif
-            if 'supremely' in description or 'exceedingly' in description or 'slaying' in description or 'blessed' in description
+            if 'supremely' in description or 'exceedingly' in description and 'slaying' in description or 'blessed' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
             else
