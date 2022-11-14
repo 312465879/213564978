@@ -1,4 +1,4 @@
-#pra quem loteia dentro direto dentro de outros containers que não seja a  bag pura
+#pra quem loteia direto dentro de outros containers(trappouch) que não seja a  bag pura
 #tem q tirar # da frente das linhas abaixo e selecionar o container sempre que rodar o macro
 
 #if varexist bagitem
