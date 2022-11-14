@@ -1,17 +1,23 @@
-#tem que setar lasttarget pra dar recycle manual em algum item que passou direto pela verificação do macro anterior
-
+@unsetvar quebrar
+if not varexist quebrar
+overhead 'select your item' sysmsgs_color
+sysmsg  'select your item' sysmsgs_color
+setvar! quebrar
+endif
+ 
+if varexist quebrar
 if findtype '7864' backpack as toolkit
-@setvar myVariable lasttarget
-getlabel 'myVariable' description
+    getlabel 'quebrar' description
 sysmsg 'Recycled: {{description}}' 85
                     useobject toolkit
                 waitforgump 949095101
                 gumpresponse 3 949095101
                 waitfortarget
-                lasttarget
+                target quebrar
                 wait 500
                 waitforgump 949095101
                 gumpclose 949095101
+            endif
             endif
 
 if findtype 12686 backpack as essencia
@@ -24,4 +30,5 @@ if findtype 12686 backpack as essencia
     wait 200
     waitforgump 2424293173
     gumpclose 2424293173
+    @unsetvar quebrar
 endif
