@@ -5,7 +5,7 @@
 #if not varexist bagitem
 #    overhead 'select your item container' sysmsgs_color
 #    sysmsg  'select your item container' sysmsgs_color
-#    @setvar! bagitem
+#    setvar! bagitem
 #endif
 
 if not listexists id_weapon_items
