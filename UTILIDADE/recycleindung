@@ -135,6 +135,14 @@ target 'backpack'
     wait 425
 endif
 
+if not findtype '20495' backpack
+if not findtype '20496' backpack
+overhead 'SEM VARINHA PARA IDENTIFICAR'
+sysmsg 'SEM VARINHA PARA IDENTIFICAR'
+stop
+endif
+endif
+
 if findtype '7864' backpack as toolkit
     foreach item in id_weapon_items
         while findtype item backpack as found
