@@ -1,5 +1,6 @@
 #pra quem loteia direto dentro de outros containers(trappouch) que não seja a  bag pura
 #tem q tirar # da frente das linhas abaixo e selecionar o container sempre que rodar o macro
+#o macro ira quebrar escudos que não sejam excep ou invulnerable
 
 #@unsetvar bagitem
 #if not varexist bagitem
@@ -177,7 +178,10 @@ if findtype '7864' backpack as toolkit
             elseif 'slaying' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
-                 elseif 'aspect' in description
+                elseif 'exceptional' in description
+               overhead 'Item: {{description}}'
+                @ignore myVariable
+                elseif 'aspect' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
             else
@@ -210,7 +214,7 @@ if findtype '7864' backpack as toolkit
                 target myVariable
                 wait 425
              endif
-             if 'invulnerability' in description or 'blessed' in description or 'aspect' in description
+             if 'invulnerability' in description or 'blessed' in description or 'aspect' in description or 'exceptional' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
             else
@@ -255,7 +259,10 @@ if findtype '7864' backpack as toolkit
             elseif 'slaying' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
-elseif 'aspect' in description
+                elseif 'exceptional' in description
+               overhead 'Item: {{description}}'
+                @ignore myVariable
+                elseif 'aspect' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
             else
@@ -303,6 +310,9 @@ elseif 'aspect' in description
                 @ignore myVariable
                 elseif 'slaying' in description
                 overhead 'Item: {{description}}'
+                @ignore myVariable
+                elseif 'exceptional' in description
+               overhead 'Item: {{description}}'
                 @ignore myVariable
                 elseif 'aspect' in description
                 overhead 'Item: {{description}}'
