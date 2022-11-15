@@ -139,6 +139,7 @@ if findtype '7864' backpack as toolkit
     foreach item in id_weapon_items
         while findtype item backpack as found
             hotkey 'set last target'
+        waitfortarget
             target found
             @setvar myVariable lasttarget
             getlabel 'myVariable' description
@@ -170,14 +171,16 @@ if findtype '7864' backpack as toolkit
                 @ignore myVariable
             else
                 sysmsg 'Recycled: {{description}}' 85
-                useobject toolkit
+            if not gumpexists 949095101    
+            useobject toolkit
+            wait 1000
+            endif
                 waitforgump 949095101
                 gumpresponse 3 949095101
+                waitforgump 949095101
                 waitfortarget
                 lasttarget
                 wait 500
-                waitforgump 949095101
-                gumpclose 949095101
             endif
         endwhile
     endfor
@@ -185,6 +188,7 @@ if findtype '7864' backpack as toolkit
     foreach item in id_armor_items
         while findtype item backpack as found
             hotkey 'set last target'
+        waitfortarget
             target found
             @setvar myVariable lasttarget
             getlabel 'myVariable' description
@@ -200,14 +204,16 @@ if findtype '7864' backpack as toolkit
                 @ignore myVariable
             else
                 sysmsg 'Recycled: {{description}}' 85
-                useobject toolkit
+            if not gumpexists 949095101    
+            useobject toolkit
+            wait 1000
+            endif
                 waitforgump 949095101
                 gumpresponse 3 949095101
+                waitforgump 949095101
                 waitfortarget
                 lasttarget
                 wait 500
-                waitforgump 949095101
-                gumpclose 949095101
             endif
         endwhile
     endfor
@@ -215,6 +221,7 @@ if findtype '7864' backpack as toolkit
     foreach item in id_bard_items
         while findtype item backpack as found
             hotkey 'set last target'
+        waitfortarget
             target found
             @setvar myVariable lasttarget
             getlabel 'myVariable' description
@@ -239,14 +246,16 @@ if findtype '7864' backpack as toolkit
                 @ignore myVariable
             else
                 sysmsg 'Recycled: {{description}}' 85
-                useobject toolkit
+            if not gumpexists 949095101    
+            useobject toolkit
+            wait 1000
+            endif
                 waitforgump 949095101
                 gumpresponse 3 949095101
+                waitforgump 949095101
                 waitfortarget
                 lasttarget
                 wait 500
-                waitforgump 949095101
-                gumpclose 949095101
             endif
         endwhile
     endfor
@@ -254,6 +263,7 @@ if findtype '7864' backpack as toolkit
     foreach item in id_mage_weapon_items
         while findtype item backpack as found
             hotkey 'set last target'
+        waitfortarget
             target found
             @setvar myVariable lasttarget
             getlabel 'myVariable' description
@@ -282,14 +292,16 @@ if findtype '7864' backpack as toolkit
                 @ignore myVariable
             else
                 sysmsg 'Recycled: {{description}}' 85
-                useobject toolkit
+            if not gumpexists 949095101    
+            useobject toolkit
+            wait 1000
+            endif
                 waitforgump 949095101
                 gumpresponse 3 949095101
-                waitfortarget
+                                waitforgump 949095101
+                                waitfortarget 300
                 lasttarget
                 wait 500
-                waitforgump 949095101
-                gumpclose 949095101
             endif
         endwhile
     endfor
@@ -305,4 +317,5 @@ if findtype 12686 backpack as essencia
     wait 200
     waitforgump 2424293173
     gumpclose 2424293173
-endif
+    gumpclose 949095101
+    endif
