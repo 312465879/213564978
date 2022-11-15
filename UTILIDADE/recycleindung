@@ -177,6 +177,9 @@ if findtype '7864' backpack as toolkit
             elseif 'slaying' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
+                 elseif 'aspect' in description
+                overhead 'Item: {{description}}'
+                @ignore myVariable
             else
                 sysmsg 'Recycled: {{description}}' 85
             if not gumpexists 949095101    
@@ -207,7 +210,7 @@ if findtype '7864' backpack as toolkit
                 target myVariable
                 wait 425
              endif
-             if 'invulnerability' in description or 'blessed' in description
+             if 'invulnerability' in description or 'blessed' in description or 'aspect' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
             else
@@ -250,6 +253,9 @@ if findtype '7864' backpack as toolkit
                 overhead 'Item: {{description}}'
                 @ignore myVariable
             elseif 'slaying' in description
+                overhead 'Item: {{description}}'
+                @ignore myVariable
+elseif 'aspect' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
             else
@@ -296,6 +302,9 @@ if findtype '7864' backpack as toolkit
                 overhead 'Item: {{description}}'
                 @ignore myVariable
                 elseif 'slaying' in description
+                overhead 'Item: {{description}}'
+                @ignore myVariable
+                elseif 'aspect' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
             else
