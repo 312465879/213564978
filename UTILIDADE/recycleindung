@@ -1,6 +1,5 @@
 #pra quem loteia direto dentro de outros containers(trappouch) que não seja a  bag pura
 #tem q tirar # da frente das linhas abaixo e selecionar o container sempre que rodar o macro
-#o macro ira quebrar escudos que não sejam excep ou invulnerable
 
 #@unsetvar bagitem
 #if not varexist bagitem
@@ -122,9 +121,15 @@ if not listexists id_mage_weapon_items
 endif
 
 
-if findtype '20496' backpack as idWand
-    @setvar identification_wand idWand
-endif
+#if findtype '20496' backpack as idWand
+ #   dclick idWand
+ #   waitfortarget
+ #   if varexist 'bagitem'
+ #   target 'bagitem'
+#    endif
+#target 'backpack'
+#    wait 425
+#endif
 
 if findtype '20495 ' backpack as idWand
     dclick idWand
@@ -253,7 +258,7 @@ if findtype '7864' backpack as toolkit
             elseif 'supremely' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
-            elseif 'exceedingly' in description
+                elseif 'slaying' in description and 'exceedingly' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
             elseif 'slaying' in description
