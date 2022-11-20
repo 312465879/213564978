@@ -122,10 +122,10 @@ endif
 
 
 #if findtype '20496' backpack as idWand
- #   dclick idWand
- #   waitfortarget
- #   if varexist 'bagitem'
- #   target 'bagitem'
+#    dclick idWand
+#    waitfortarget
+#    if varexist 'bagitem'
+#    target 'bagitem'
 #    endif
 #target 'backpack'
 #    wait 425
@@ -145,7 +145,7 @@ if not findtype '20495' backpack
 if not findtype '20496' backpack
 overhead 'SEM VARINHA PARA IDENTIFICAR'
 sysmsg 'SEM VARINHA PARA IDENTIFICAR'
-stop
+#stop
 endif
 endif
 
@@ -164,7 +164,8 @@ if findtype '7864' backpack as toolkit
                 target myVariable
                 wait 425
             endif
-            
+
+            getlabel 'myVariable' description
             if 'blessed' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
@@ -187,6 +188,9 @@ if findtype '7864' backpack as toolkit
                overhead 'Item: {{description}}'
                 @ignore myVariable
                 elseif 'aspect' in description
+                overhead 'Item: {{description}}'
+                @ignore myVariable
+                elseif 'vanquishing' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
             else
@@ -219,6 +223,8 @@ if findtype '7864' backpack as toolkit
                 target myVariable
                 wait 425
              endif
+
+             getlabel 'myVariable' description
              if 'invulnerability' in description or 'blessed' in description or 'aspect' in description or 'exceptional' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
@@ -252,6 +258,8 @@ if findtype '7864' backpack as toolkit
                  target myVariable
                  wait 425
              endif
+
+             getlabel 'myVariable' description
              if 'blessed' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
@@ -268,6 +276,9 @@ if findtype '7864' backpack as toolkit
                overhead 'Item: {{description}}'
                 @ignore myVariable
                 elseif 'aspect' in description
+                overhead 'Item: {{description}}'
+                @ignore myVariable
+                elseif 'exceedingly' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
             else
@@ -301,6 +312,7 @@ if findtype '7864' backpack as toolkit
                  wait 425
              endif
             
+            getlabel 'myVariable' description
             if 'blessed' in description
                 overhead 'Item: {{description}}'
                 @ignore myVariable
@@ -339,15 +351,14 @@ if findtype '7864' backpack as toolkit
     endfor
 endif
 
-if findtype 12686 backpack as essencia
-    say '[aspect'
-    waitforgump 2424293173
-    gumpresponse 100 2424293173
-    waitforgump 2424293173
-    waitfortarget
-    target essencia
-    wait 200
-    waitforgump 2424293173
+    if findtype 12686 backpack as essencia
+        if counttype 12686 backpack as qtdEssencia
+        overhead 'Adding {{qtdEssencia}} essences'
+        endif
+        dclick essencia
+        waitfortarget 2000
+        hotkey 'Target Self'
+    endif
     gumpclose 2424293173
     gumpclose 949095101
     endif
